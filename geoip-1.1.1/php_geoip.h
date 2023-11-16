@@ -24,7 +24,7 @@
 extern zend_module_entry geoip_module_entry;
 #define phpext_geoip_ptr &geoip_module_entry
 
-#define PHP_GEOIP_VERSION "1.1.2-dev"
+#define PHP_GEOIP_VERSION "1.1.1"
 
 #if PHP_MAJOR_VERSION < 7
 typedef long zend_long;
@@ -49,12 +49,10 @@ PHP_RINIT_FUNCTION(geoip);
 PHP_RSHUTDOWN_FUNCTION(geoip);
 PHP_MINFO_FUNCTION(geoip);
 
-
 PHP_FUNCTION(geoip_database_info);
-#define GEOIPDEF(php_func, c_func, db_type) \
-PHP_FUNCTION(php_func);
-#include "geoip.def"
-#undef GEOIPDEF
+PHP_FUNCTION(geoip_country_code_by_name);
+PHP_FUNCTION(geoip_country_code3_by_name);
+PHP_FUNCTION(geoip_country_name_by_name);
 PHP_FUNCTION(geoip_continent_code_by_name);
 PHP_FUNCTION(geoip_org_by_name);
 PHP_FUNCTION(geoip_record_by_name);
@@ -73,6 +71,11 @@ PHP_FUNCTION(geoip_setup_custom_directory);
 #endif
 PHP_FUNCTION(geoip_asnum_by_name);
 PHP_FUNCTION(geoip_domain_by_name);
+#if LIBGEOIP_VERSION >= 1004005
+PHP_FUNCTION(geoip_country_code_by_name_v6);
+PHP_FUNCTION(geoip_country_code3_by_name_v6);
+PHP_FUNCTION(geoip_country_name_by_name_v6);
+#endif
 #if LIBGEOIP_VERSION >= 1004008
 PHP_FUNCTION(geoip_netspeedcell_by_name);
 #endif

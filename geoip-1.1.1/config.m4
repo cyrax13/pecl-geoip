@@ -1,4 +1,4 @@
-dnl $Id$
+dnl $Id: config.m4 333464 2014-05-03 10:21:31Z remi $
 dnl config.m4 for extension geoip
 
 dnl Base file contributed by Jonathan Whiteman of cyberflowsolutions.com
